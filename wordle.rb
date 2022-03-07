@@ -3,9 +3,6 @@
 # print "Guess a five letter word here!: "
 # input = [STDIN.getch, STDIN.getch, STDIN.getch, STDIN.getch, STDIN.getch].join("")
 
-# ------ HOW TO PUT UNICODE IN RUBY ------ #
-
-
 solution = "ROBOT"
 solved = false
 
@@ -29,6 +26,7 @@ def compare_guess(input, solution)
 end
 
 # ------ Runs Loop To Check All Guesses ------ #
+
 6.times do
   print "Guess a five letter word here!: "
   input = gets.chomp.upcase
@@ -42,6 +40,7 @@ end
 end
 
 # ------ Determines If You Won ------ #
+
 if solved == true
   puts "Congratulations! You Won Knockoff Wordle!"
 else

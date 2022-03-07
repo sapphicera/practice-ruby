@@ -90,6 +90,7 @@ manager = Manager.new(
 # p manager.employees
 
 # --- Attempt Faker to Make New Employees ---
+
 require 'faker'
 
 new_hires = []
