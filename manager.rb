@@ -1,64 +1,83 @@
-# ------ Class for Employees ------
+# old code stuff, delete later
 
-class Employee
-  attr_reader :first_name, :last_name, :active
-  attr_writer :active
+# require 'faker'
 
-  def initialize(input_options)
-    @first_name = input_options[:first_name]
-    @last_name = input_options[:last_name]
-    @salary = input_options[:salary]
-    @active = input_options[:active]
-  end
+# # ------ Class for Employees ------
 
-  def print_info
-    puts "#{@first_name} #{@last_name} makes #{@salary} a year."
-  end
+# class Employee
+#   attr_reader :first_name, :last_name, :salary, :active
+#   attr_writer :first_name, :last_name, :active
 
-  def give_annual_raise
-    @salary = 1.05 * @salary
-  end
-end
+#   def initialize(input_options)
+#     @first_name = input_options[:first_name]
+#     @last_name = input_options[:last_name]
+#     @salary = input_options[:salary]
+#     @active = input_options[:active]
+#   end
 
-employee1 = Employee.new({first_name: "Majora", last_name: "Carter", salary: 80000, active: true})
-employee2 = Employee.new(first_name: "Danilo", last_name: "Campos", salary: 70000, active: true)
+#   def print_info
+#     p "#{@first_name} #{@last_name} makes $#{@salary} per year."
+#   end
 
-employee1.print_info
-employee2.print_info
+#   def give_annual_raise
+#     @salary *= 1.05
+#   end
+# end
 
-# ------ Class for Managers ft. Inheritance ------
+# # employee1 = Employee.new({first_name: "Majora", last_name: "Carter", salary: 80000, active: true})
+# # employee2 = Employee.new(first_name: "Danilo", last_name: "Campos", salary: 70000, active: true)
 
-class Manager < Employee
-  attr_reader :employees
-  def initialize(input_options)
-    super
-    @employees = input_options[:employees]
-  end
+# # employee1.print_info
+# # employee2.print_info
 
-  def send_report
-    puts "Sending email..."
-    # use email sending library...
-    puts "Email sent!"
-  end
+# # ------ Class for Managers ft. Inheritance ------
 
-  def give_all_raises
-    employees.each{|e| e.give_annual_raise}
-  end
+# class Manager < Employee
+#   attr_reader :employees
+#   def initialize(input_options)
+#     super
+#     @employees = input_options[:employees]
+#   end
 
-  def fire_all_employees
-    employees.each{|e| e.active = false}
-  end
-end
+#   def send_report
+#     puts "Sending email..."
+#     # use email sending library...
+#     puts "Email sent!"
+#   end
 
-manager = Manager.new(first_name: "Saron", last_name: "Yitbarek", salary: 100000, active: true, employees: [employee1, employee2])
+#   def give_all_raises
+#     employees.each{|e| e.give_annual_raise}
+#   end
 
-manager.print_info
-manager.send_report
+#   def fire_all_employees
+#     employees.each{|e| e.active = false}
+#   end
+# end
 
-manager.give_all_raises
-employee1.print_info
-employee2.print_info
+# manager = Manager.new(first_name: "Saron", last_name: "Yitbarek", salary: 100000, active: true, employees: [employee1, employee2])
 
-manager.fire_all_employees
-p employee1.active
-p employee2.active
+# manager.print_info
+# manager.send_report
+
+# manager.give_all_raises
+# employee1.print_info
+# employee2.print_info
+
+# manager.fire_all_employees
+# p employee1.active
+# p employee2.active
+
+# ---- new stuff ----
+
+# new_hires = []
+
+# 100.times do
+#   test = Employee.new(
+#     first_name: Faker::Name.first_name, 
+#     last_name: Faker::Name.last_name, 
+#     salary: Faker::Number.between(from: 36_000, to: 120_000), 
+#     active: true)
+#   new_hires << test
+# end
+
+# pp new_hires

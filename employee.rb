@@ -1,24 +1,24 @@
 # ------ Review of Hashes & Different Implementations ------
 
-# --- String Concentation ---
-employee1 = ["Laxi", "Orchis", 420, true]
-p employee1[0] + " " + employee1[1] + " makes $" + employee1[2].to_s + " per year."
+# # --- String Concentation ---
+# employee1 = ["Laxi", "Orchis", 420, true]
+# p employee1[0] + " " + employee1[1] + " makes $" + employee1[2].to_s + " per year."
 
-# --- String Interpolation ---
-employee2 = ["Mascula", "Orchis", 69, false]
-p "#{employee2[0]} #{employee2[1]} makes $#{employee2[2]} per year."
+# # --- String Interpolation ---
+# employee2 = ["Mascula", "Orchis", 69, false]
+# p "#{employee2[0]} #{employee2[1]} makes $#{employee2[2]} per year."
 
-# Weakest Hash Implementation #
-employee3 = {"first_name" => "Finni", "last_name" => "Orchis", "salary" => 420, "active" => true}
-p "#{employee3['first_name']} #{employee3['last_name']} makes $#{employee3['salary']} per year."
+# # Weakest Hash Implementation #
+# employee3 = {"first_name" => "Finni", "last_name" => "Orchis", "salary" => 420, "active" => true}
+# p "#{employee3['first_name']} #{employee3['last_name']} makes $#{employee3['salary']} per year."
 
-# Mid Hash Implementation #
-employee4 = {:first_name => "Eirene", :last_name => "Orchis", :salary => 69, :active => false}
-p "#{employee4[:first_name]} #{employee4[:last_name]} makes $#{employee4[:salary]} per year."
+# # Mid Hash Implementation #
+# employee4 = {:first_name => "Eirene", :last_name => "Orchis", :salary => 69, :active => false}
+# p "#{employee4[:first_name]} #{employee4[:last_name]} makes $#{employee4[:salary]} per year."
 
-# Best Hash Implementation #
-employee5 = {first_name: "Catasetum", last_name: "Orchis", salary: 69, active: false}
-p "#{employee5[:first_name]} #{employee5[:last_name]} makes $#{employee5[:salary]} per year."
+# # Best Hash Implementation #
+# employee5 = {first_name: "Catasetum", last_name: "Orchis", salary: 69, active: false}
+# p "#{employee5[:first_name]} #{employee5[:last_name]} makes $#{employee5[:salary]} per year."
 
 # ------ Class for Employees ------
 
@@ -88,3 +88,19 @@ manager = Manager.new(
 # manager.print_info
 # manager.send_report
 # p manager.employees
+
+# --- Attempt Faker to Make New Employees ---
+require 'faker'
+
+new_hires = []
+
+10.times do
+  test = Employee.new(
+    first_name: Faker::Name.first_name, 
+    last_name: Faker::Name.last_name, 
+    salary: Faker::Number.between(from: 36_000, to: 120_000), 
+    active: true)
+  new_hires << test
+end
+
+pp new_hires
